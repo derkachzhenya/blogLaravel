@@ -1,20 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Main\IndexController;
+use App\Http\Controllers\Admin\Main\AdminController;
+use App\Http\Controllers\Admin\Category\CategoryController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['namespase'=>'Main'], function(){
+Route::get('/', [IndexController::class, 'index'])->name('index');
+});
+
+Route::group(['namespase'=>'Admin', 'prefix'=>'admin'], function(){
+    Route::group(['namespase'=>'Main'], function(){
+        Route::get('/', [AdminController::class, 'index'])->name('index.admin');
+        });
+        Route::group(['namespase'=>'Category', 'prefix'=>'categories'], function(){
+            Route::get('/', [CategoryController::class, 'index'])->name('index');
+                });
 });
 
 Auth::routes();
