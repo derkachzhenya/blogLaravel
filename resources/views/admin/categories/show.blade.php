@@ -10,40 +10,38 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-     <h1 class = "ml-2">Категории</h1>
+     <h1 class = "ml-2">{{$category->title}}</h1>
      <div class="col-12">
             <div class="card col-6">
                         <div class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>User</th>
-                      <th colspan = "2" class = "text-center">Действия</th>
-                    </tr>
-                  </thead>
+               
                   <tbody>
-                    @foreach($categories as $category)
+                    
                     <tr>
+                      <td>ID</td>
                       <td>{{$category->id}}</td>
-                      <td>{{$category->title}}</td>
-                      <td><a href="{{route('admin.category.show', $category->id)}}"><i class="far fa-eye"></i></a></td>
-                      <td><a href="{{route('admin.category.edit', $category->id)}}"><i class="fas fa-pen"></i></a></td>
+                     
                     </tr>
-                   @endforeach
+                    <tr>
+                      <td>Название</td>
+                      <td>{{$category->title}}</td>
+                      
+                    </tr>
                   </tbody>
                 </table>
               </div>
+              
               <!-- /.card-body -->
             </div>
+            <div>
+              <a href="{{route('admin.category.index')}}" class="btn btn-secondary">Назад</a> 
+              </div>
             <!-- /.card -->
           </div>
         </div>
         
-        <div >
-        <a href="{{route('admin.index')}}" class="btn btn-secondary">Назад</a>  
-        <a href="{{route('admin.category.create')}}" class="btn btn-secondary">Добавить категорию</a>  
-</div>
+     
     </section>
     <!-- /.content -->
   </div>
