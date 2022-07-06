@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\Category\CreateController;
 use App\Http\Controllers\Admin\Category\StoreController;
 use App\Http\Controllers\Admin\Category\ShowController;
 use App\Http\Controllers\Admin\Category\EditController;
+use App\Http\Controllers\Admin\Category\UpdateController;
+use App\Http\Controllers\Admin\Category\DeleteController;
 
 Route::group(['namespase'=>'Main'], function(){
 Route::get('/', [IndexController::class, 'index'])->name('index');
@@ -23,6 +25,8 @@ Route::group(['namespase'=>'Admin', 'prefix'=>'admin'], function(){
             Route::post('/', [StoreController::class, 'store'])->name('admin.category.store');
             Route::get('/{category}', [ShowController::class, 'show'])->name('admin.category.show');
             Route::get('/{category}/edit', [EditController::class, 'edit'])->name('admin.category.edit');
+            Route::patch('/{category}', [UpdateController::class, 'update'])->name('admin.category.update');
+            Route::delete('/{category}', [DeleteController::class, 'delete'])->name('admin.category.delete');
                 });
 });
 

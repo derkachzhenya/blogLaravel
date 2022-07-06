@@ -10,7 +10,17 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-     <h1 class = "ml-2">{{$category->title}}</h1>
+          <div class = "d-flex align-items-center">
+     <h1 class = "ml-2 mr-3">{{$category->title}}</h1>
+     <td ><a href="{{route('admin.category.edit', $category->id)}}" class="mr-2"><i class="fas fa-pen"></i></a></td>
+     <td>  <form action="{{route('admin.category.delete', $category->id)}}" method="POST">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="border-0 bg-transparent">
+                        <i class="fas fa-trash text-danger" role="button"></i>
+                        </button>
+                        </form></td>
+     </div>
      <div class="col-12">
             <div class="card col-6">
                         <div class="card-body table-responsive p-0">

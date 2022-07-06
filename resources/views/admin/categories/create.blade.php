@@ -23,7 +23,7 @@
                     @enderror
                       </div>
                  
-                  <button type="submit" class="btn btn-primary">Отправить</button>
+                  <button type="submit" class="btn btn-secondary">Отправить</button>
                 
                  
                 </div>

@@ -12,8 +12,9 @@
             <div class="row">
             <div class="col-6">
             <h2 class="ml-4 mt-3">Редактирование категорий</h2>
-            <form action = "#" method = "post">
+            <form action = "{{route('admin.category.update', $category->id)}}" method = "post">
               @csrf
+              @method('patch')
                 <div class="card-body ">
                   <div class="form-group">
                     <label>Название</label>
